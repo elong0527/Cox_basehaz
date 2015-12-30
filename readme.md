@@ -1,37 +1,15 @@
+---
+layout: page
+---
+
 ### Abstract
 
-The function $\mathsf{basehaz\_ab}$ provides a fast $\mathsf{R}$
+The function `basehaz_ab` provides a fast `R`
 implementation for generalized Breslow estimator. In Cox PH model,
 the implementation are around 50 times fast than the routine function
-$\mathsf{survival::basehaz}$. 
+`survival::basehaz}`. 
 
-### Background
-
-{[}Breslow estimator{]}(http://www.ncbi.nlm.nih.gov/pubmed/17768681)
-provided the MLE for the cumulative baseline hazard function for Cox
-PH model. Let$(t,\delta,X)$ denote observation time, event indicator
-and covariates. In Cox PH model, the log likelihood function for baseline
-hazard function are equivalent to 
-\[
-l=\sum_{i=1}^{n}\{\delta_{i}\log\lambda(t_{i})-\exp(X_{i}\beta)\Lambda(t_{i})\},
-\]
-where $\lambda(\cdot)$ and $\Lambda(\cdot)$ are instantaneous and
-cumulative baseline hazard functions. Models that extend Cox model
-require to solve a general probelm
-\[
-l=\sum_{i=1}^{n}\{a_{i}\log\lambda(t_{i})-b_{i}\Lambda(t_{i})\},
-\]
-e.g. {[}Cox PH cure model{]}(http://onlinelibrary.wiley.com/doi/10.1111/j.0006-341X.2000.00227.x/abstract).
-Let $y$ denote uncured indicator. In Cox PH cure model we have
-\[
-a_{i}=y_{i}\delta_{i}\;b_{i}=y_{i}\exp(X_{i}\beta).
-\]
-The MLE of generalized log likelihood function is 
-\[
-\hat{\lambda}(t_{i})=\frac{a_{i}}{\sum_{i\in\mathcal{R}(t)}b_{i}},\;\hat{\Lambda}(t)=\sum_{i=1}^{n}\frac{I(t_{i}<t)a_{i}}{\sum_{i\in\mathcal{R}(t)}b_{i}},
-\]
-where $\mathcal{R}(t)=\{i:t_{i}\ge t\}$ is the at risk set at time
-$t$. 
+* The Math background can be found [here](./readme_full.html)
 
 
 ### Illustration 
@@ -45,7 +23,7 @@ source("basehaz_ab.R")
 
 
 set.seed(123)
-N <- 300
+N <- 5000
 x <- rnorm(N)
 error <- log( - log( runif(N) ) )
 t <- exp( - x * 2 + error)  # Cox model with exponential baseline
@@ -61,14 +39,14 @@ fit
 ## coxph(formula = Surv(time, status) ~ x)
 ## 
 ## 
-##    coef exp(coef) se(coef)    z      p
-## x 1.978     7.229    0.138 14.3 <2e-16
+##     coef exp(coef) se(coef)    z      p
+## x 2.0450    7.7290   0.0343 59.7 <2e-16
 ## 
-## Likelihood ratio test=259  on 1 df, p=0
-## n= 300, number of events= 149
+## Likelihood ratio test=4536  on 1 df, p=0
+## n= 5000, number of events= 2485
 ```
 
-Check the equivalence of $\mathsf{basehaz\_ab}$ and $\mathsf{survival::basehaz}$
+Check the equivalence of `basehaz_ab` and `survival::basehaz`
 
 
 ```r
@@ -89,7 +67,7 @@ max( abs(sort(baz0) - baz1$hazard) )
 ```
 
 ```
-## [1] 3.730349e-14
+## [1] 4.94822e-11
 ```
 
 Compare the caculation Time
@@ -104,7 +82,7 @@ system.time({
 
 ```
 ##    user  system elapsed 
-##       0       0       0
+##    0.14    0.00    0.14
 ```
 
 ```r
@@ -115,6 +93,6 @@ system.time({
 
 ```
 ##    user  system elapsed 
-##    0.67    0.02    0.77
+##    8.42    0.01    8.75
 ```
 
