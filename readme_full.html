@@ -63,7 +63,7 @@ img {
 
 <div id="abstract" class="section level3">
 <h3>Abstract</h3>
-<p>The function <code>basehaz_ab</code> provides a fast <code>R</code> implementation for generalized Breslow estimator. In Cox PH model, the implementation are around 50 times fast than the routine function <code>survival::basehaz}</code>.</p>
+<p>The function <code>basehaz_ab</code> provides a fast <code>R</code> implementation for generalized Breslow estimator. In Cox PH model, the implementation are around 50 times fast than the routine function <code>survival::basehaz</code>.</p>
 </div>
 <div id="background" class="section level3">
 <h3>Background</h3>
@@ -121,12 +121,12 @@ system.time({
   for(i in 1:100) baz0 = basehaz_ab( a = status, b = exp(fit$coef * x), t = time)
 })</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.14    0.00    0.14</code></pre>
+##    0.13    0.00    0.13</code></pre>
 <pre class="r"><code>system.time({
   for(i in 1:100) baz1 = basehaz(fit, centered = F)
 })</code></pre>
 <pre><code>##    user  system elapsed 
-##    8.40    0.01    8.66</code></pre>
+##    8.42    0.00    8.72</code></pre>
 </div>
 
 

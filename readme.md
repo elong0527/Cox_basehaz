@@ -7,9 +7,9 @@ layout: page
 The function `basehaz_ab` provides a fast `R`
 implementation for generalized Breslow estimator. In Cox PH model,
 the implementation are around 50 times fast than the routine function
-`survival::basehaz}`. 
+`survival::basehaz`. 
 
-* The Math background can be found [here](./readme_full.html)
+* The Math background can be found [here](https://cdn.rawgit.com/elong0527/Cox_basehaz/master/readme_full.html)
 
 
 ### Illustration 
@@ -82,7 +82,7 @@ system.time({
 
 ```
 ##    user  system elapsed 
-##    0.14    0.00    0.14
+##    0.12    0.00    0.12
 ```
 
 ```r
@@ -93,6 +93,6 @@ system.time({
 
 ```
 ##    user  system elapsed 
-##    8.42    0.01    8.75
+##    8.39    0.00    8.64
 ```
 
