@@ -1,0 +1,142 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+[Breslow estimator](http://www.ncbi.nlm.nih.gov/pubmed/17768681) provided the
+ MLE for the cumulative baseline hazard function for Cox PH model.
+ Let
+\begin_inset Formula $(t,\delta,X)$
+\end_inset
+
+ denote observation time, event indicator and covariates.
+ In Cox PH model, the log likelihood function for baseline hazard function
+ are equivalent to 
+\begin_inset Formula 
+\[
+l=\sum_{i=1}^{n}\{\delta_{i}\log\lambda(t_{i})-\exp(X_{i}\beta)\Lambda(t_{i})\},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda(\cdot)$
+\end_inset
+
+ and 
+\begin_inset Formula $\Lambda(\cdot)$
+\end_inset
+
+ are instantaneous and cumulative baseline hazard functions.
+ Models that extend Cox model require to solve a general probelm
+\begin_inset Formula 
+\[
+l=\sum_{i=1}^{n}\{a_{i}\log\lambda(t_{i})-b_{i}\Lambda(t_{i})\},
+\]
+
+\end_inset
+
+e.g.
+ [Cox PH cure model](http://onlinelibrary.wiley.com/doi/10.1111/j.0006-341X.2000.00227.
+x/abstract).
+ Let 
+\begin_inset Formula $y$
+\end_inset
+
+ denote uncured indicator.
+ In Cox PH cure model we have
+\begin_inset Formula 
+\[
+a_{i}=y_{i}\delta_{i}\;b_{i}=y_{i}\exp(X_{i}\beta).
+\]
+
+\end_inset
+
+The MLE of generalized log likelihood function is 
+\begin_inset Formula 
+\[
+\hat{\Lambda}(t)=\sum_{i=1}^{n}\frac{I(t_{i}<t)a_{i}}{\sum_{i\in\mathcal{R}(t)}b_{i}},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{R}(t)=\{i:t_{i}\ge t\}$
+\end_inset
+
+ is the at risk set at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document
