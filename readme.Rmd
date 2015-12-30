@@ -1,3 +1,8 @@
+---
+title: "t-tests in Practice"
+layout: page
+---
+
 ### Abstract
 
 The function $\mathsf{basehaz\_ab}$ provides a fast $\mathsf{R}$
