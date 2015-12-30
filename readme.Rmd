@@ -1,5 +1,4 @@
 ---
-title: "t-tests in Practice"
 layout: page
 ---
 
@@ -12,29 +11,29 @@ $\mathsf{survival::basehaz}$.
 
 ### Background
 
-{[}Breslow estimator{]}(http://www.ncbi.nlm.nih.gov/pubmed/17768681)
+[Breslow estimator](http://www.ncbi.nlm.nih.gov/pubmed/17768681)
 provided the MLE for the cumulative baseline hazard function for Cox
 PH model. Let$(t,\delta,X)$ denote observation time, event indicator
 and covariates. In Cox PH model, the log likelihood function for baseline
 hazard function are equivalent to 
-\[
-l=\sum_{i=1}^{n}\{\delta_{i}\log\lambda(t_{i})-\exp(X_{i}\beta)\Lambda(t_{i})\},
-\]
+
+$$l=\sum_{i=1}^{n}\{\delta_{i}\log\lambda(t_{i})-\exp(X_{i}\beta)\Lambda(t_{i})\},$$
+
 where $\lambda(\cdot)$ and $\Lambda(\cdot)$ are instantaneous and
 cumulative baseline hazard functions. Models that extend Cox model
 require to solve a general probelm
-\[
-l=\sum_{i=1}^{n}\{a_{i}\log\lambda(t_{i})-b_{i}\Lambda(t_{i})\},
-\]
-e.g. {[}Cox PH cure model{]}(http://onlinelibrary.wiley.com/doi/10.1111/j.0006-341X.2000.00227.x/abstract).
+
+$$l=\sum_{i=1}^{n}\{a_{i}\log\lambda(t_{i})-b_{i}\Lambda(t_{i})\},$$
+
+e.g. [Cox PH cure model](http://onlinelibrary.wiley.com/doi/10.1111/j.0006-341X.2000.00227.x/abstract).
 Let $y$ denote uncured indicator. In Cox PH cure model we have
-\[
-a_{i}=y_{i}\delta_{i}\;b_{i}=y_{i}\exp(X_{i}\beta).
-\]
+
+$$a_{i}=y_{i}\delta_{i}\;b_{i}=y_{i}\exp(X_{i}\beta).$$
+
 The MLE of generalized log likelihood function is 
-\[
-\hat{\lambda}(t_{i})=\frac{a_{i}}{\sum_{i\in\mathcal{R}(t)}b_{i}},\;\hat{\Lambda}(t)=\sum_{i=1}^{n}\frac{I(t_{i}<t)a_{i}}{\sum_{i\in\mathcal{R}(t)}b_{i}},
-\]
+
+$$\hat{\lambda}(t_{i})=\frac{a_{i}}{\sum_{i\in\mathcal{R}(t)}b_{i}},\;\hat{\Lambda}(t)=\sum_{i=1}^{n}\frac{I(t_{i}<t)a_{i}}{\sum_{i\in\mathcal{R}(t)}b_{i}},$$
+
 where $\mathcal{R}(t)=\{i:t_{i}\ge t\}$ is the at risk set at time
 $t$. 
 
